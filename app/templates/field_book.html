@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Libro de Campo{% endblock %}
+{% block content %}
+<h2>Libro de Campo</h2>
+<form method="POST">
+    <label for="title">Título:</label>
+    <input type="text" name="title" required>
+    <label for="description">Descripción:</label>
+    <textarea name="description"></textarea>
+    <button type="submit">Agregar</button>
+</form>
+<ul>
+    {% for entry in entries %}
+    <li>{{ entry.title }} - {{ entry.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

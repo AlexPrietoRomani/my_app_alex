@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Web App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                <li><a href="{{ url_for('reports.view_reports') }}">Reportes</a></li>
+                {% if current_user.is_authenticated and current_user.role in ['moderador', 'admin'] %}
+                <li><a href="{{ url_for('models_creation.create_model') }}">Crear Modelos</a></li>
+                <li><a href="{{ url_for('field_book.manage_field_book') }}">Libro de Campo</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                <li><a href="{{ url_for('admin.manage_users') }}">Admin</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

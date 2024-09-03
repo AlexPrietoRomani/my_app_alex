@@ -1,0 +1,12 @@
+Flask==2.0.3
+Flask-SQLAlchemy==2.5.1
+Flask-Migrate==3.1.0
+Flask-Login==0.5.0
+Werkzeug==2.0.3
+gunicorn==20.1.0           # Servidor WSGI para despliegue en producción
+itsdangerous==2.0.1
+Jinja2==3.0.3
+click==8.0.4
+MarkupSafe==2.0.1
+python-dotenv==0.20.0      # Para manejar variables de entorno
+psycopg2-binary==2.9.3     # Driver para PostgreSQL, opcional si se usa SQLite

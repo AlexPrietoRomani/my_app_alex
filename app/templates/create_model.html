@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Crear Modelos{% endblock %}
+{% block content %}
+<h2>Crear Modelos</h2>
+<form method="POST">
+    <label for="name">Nombre del Modelo:</label>
+    <input type="text" name="name" required>
+    <button type="submit">Crear</button>
+</form>
+<ul>
+    {% for template in templates %}
+    <li>{{ template.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
